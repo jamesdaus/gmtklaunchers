@@ -78,6 +78,7 @@ MonoBehaviour:
   isPlant: 1
   movePoint: {fileID: 1239996545592007161}
   moveSpeed: 0.1
+  distToMove: 5
 --- !u!212 &4668210861228580060
 SpriteRenderer:
   m_ObjectHideFlags: 0
