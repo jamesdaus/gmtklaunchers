@@ -11,13 +11,14 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         movePoint.transform.parent = null;
 
-        if (isPlant) {
+        if (isPlant)
+        {
             direction = 1;
         }
-        else {
+        else
+        {
             direction = -1;
         }
 
@@ -29,17 +30,28 @@ public class PlayerMovement : MonoBehaviour
         Move();
     }
 
-    void Move() 
+    void Move()
     {
         transform.position = Vector3.MoveTowards(transform.position, movePoint.transform.position, 0.1f);
 
-        if (Vector3.Distance(transform.position, movePoint.transform.position) <= .005f) {
+        if (Vector3.Distance(transform.position, movePoint.transform.position) <= .005f)
+        {
 
-            if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0) {
-                movePoint.transform.position += new Vector3(.1f * direction,0,0);
+            if (Input.GetAxisRaw("Horizontal") > 0)
+            {
+                movePoint.transform.position += new Vector3(.1f * direction, 0, 0);
             }
-            if (Input.GetAxisRaw("Horizontal") < 0) {
-                movePoint.transform.position += new Vector3(-.1f * direction,0,0);
+            if (Input.GetAxisRaw("Horizontal") < 0)
+            {
+                movePoint.transform.position += new Vector3(-.1f * direction, 0, 0);
+            }
+            if (Input.GetAxisRaw("Vertical") > 0)
+            {
+                movePoint.transform.position += new Vector3(0, .1f * direction, 0);
+            }
+            if (Input.GetAxisRaw("Vertical") < 0)
+            {
+                movePoint.transform.position += new Vector3(0, -.1f * direction, 0);
             }
         }
     }
