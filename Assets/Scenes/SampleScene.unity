@@ -213,6 +213,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4668210861228580058, guid: 9b3a2b6e7a0c7c34a9a0e375600477bb, type: 3}
+      propertyPath: moveSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 4668210861228580059, guid: 9b3a2b6e7a0c7c34a9a0e375600477bb, type: 3}
       propertyPath: m_Name
       value: PlantGuy
