@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 namespace MrushumeMan.SeanManagement
 {
-    public class SceanLoader : MonoBehaviour
+    public class SceneLoader : MonoBehaviour
     {
         void Start()
         {
