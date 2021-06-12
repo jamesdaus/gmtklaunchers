@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 9020911245971693801}
   - component: {fileID: 3785942138015665084}
   m_Layer: 7
-  m_Name: FungusGuy
+  m_Name: FungusGuy 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,6 +79,7 @@ MonoBehaviour:
   isPlant: 0
   movePoint: {fileID: 9020911245650151800}
   moveSpeed: 5
+  playerSprite: {fileID: 0}
 --- !u!212 &9020911245971693801
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -124,7 +125,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 7, y: 9}
+  m_Size: {x: 4.21, y: 5.93}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -146,9 +147,9 @@ BoxCollider2D:
   m_Offset: {x: -0.0071454346, y: 0.2999392}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.52927387, y: 0.20969947}
-    oldSize: {x: 2.8, y: 3.6}
-    newSize: {x: 7, y: 9}
+    pivot: {x: 0.31719622, y: 0.060564682}
+    oldSize: {x: 4.21, y: 5.93}
+    newSize: {x: 4.21, y: 5.93}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
