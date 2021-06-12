@@ -239,7 +239,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0949c6ebc45cc1429c0935ea0d93cf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyDelay: 0.1
   blop: funguy
+  thingState: 0
 --- !u!50 &-8208918571179198601
 Rigidbody2D:
   serializedVersion: 4
@@ -275,6 +277,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClips: []
   audioSource: {fileID: 0}
+  playsound:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!82 &4215116904736426484
 AudioSource:
   m_ObjectHideFlags: 0

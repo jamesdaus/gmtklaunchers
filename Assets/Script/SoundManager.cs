@@ -5,23 +5,18 @@ using UnityEngine.Events;
 
 public class SoundManager : MonoBehaviour
 {
-    string[] allTags;
-    [SerializeField] AudioClip[] audioClips;
-    [SerializeField] AudioSource audioSource;
-    [SerializeField] UnityEvent playsound;
+
+    public UnityEvent playsound;
     
     void Awake()
     {
-        transform.parent = null;
-    }
-    void Start()
-    {
-        audioSource = GameObject.FindObjectOfType<AudioSource>().GetComponent<AudioSource>();
-    }
+        SoundPlayer sp = GetComponent<SoundPlayer>();
+        //playsound.AddListener(sp.PlaySound());
 
-    void OnCollisionEnter(Collision other)
+        //transform.parent = null;
+    }
+    void Action()
     {
-        Debug.Log(other.gameObject.name);
-        audioSource.PlayOneShot(audioClips[Random.Range(0, audioClips.Length)]);
+        
     }
 }
