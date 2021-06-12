@@ -6,8 +6,10 @@ public class PlayerMovement : MonoBehaviour
 {
     public bool isPlant;
     public GameObject movePoint;
-    public float moveSpeed = 1f;
+    public float moveSpeed;
     private int direction;
+    
+    private const float TILE_SIZE = 1.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -40,19 +42,19 @@ public class PlayerMovement : MonoBehaviour
 
             if (Input.GetAxisRaw("Horizontal") > 0)
             {
-                movePoint.transform.position += new Vector3(moveSpeed * direction, 0, 0);
+                movePoint.transform.position += new Vector3(TILE_SIZE * direction, 0, 0);
             }
             if (Input.GetAxisRaw("Horizontal") < 0)
             {
-                movePoint.transform.position += new Vector3(-moveSpeed * direction, 0, 0);
+                movePoint.transform.position += new Vector3(-TILE_SIZE * direction, 0, 0);
             }
             if (Input.GetAxisRaw("Vertical") > 0)
             {
-                movePoint.transform.position += new Vector3(0, moveSpeed * direction, 0);
+                movePoint.transform.position += new Vector3(0, TILE_SIZE * direction, 0);
             }
             if (Input.GetAxisRaw("Vertical") < 0)
             {
-                movePoint.transform.position += new Vector3(0, -moveSpeed * direction, 0);
+                movePoint.transform.position += new Vector3(0, -TILE_SIZE * direction, 0);
             }
         }
     }
