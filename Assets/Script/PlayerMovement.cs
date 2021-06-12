@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
     public bool isPlant;
     public GameObject movePoint;
     public float moveSpeed;
+    public SpriteRenderer playerSprite;
+
     private int direction;
     
     private const float TILE_SIZE = 1.0f;
@@ -31,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         Move();
+        GetComponent<SpriteRenderer>().sortingOrder = (int)(((-transform.position.y)+25)*100)+1; //Ordering madness
     }
 
     void Move()
@@ -42,17 +45,21 @@ public class PlayerMovement : MonoBehaviour
 
             if (Input.GetAxisRaw("Horizontal") > 0)
             {
-                movePoint.transform.position += new Vector3(TILE_SIZE * direction, 0, 0);
+                if (!(gameObject.transform.position.x + TILE_SIZE > Screen.width/2)) { 
+                    movePoint.transform.position += new Vector3(TILE_SIZE * direction, 0, 0);
+                    playerSprite.flipX = true;
+                }
             }
-            if (Input.GetAxisRaw("Horizontal") < 0)
+            else if (Input.GetAxisRaw("Horizontal") < 0)
             {
                 movePoint.transform.position += new Vector3(-TILE_SIZE * direction, 0, 0);
+                playerSprite.flipX = false;
             }
-            if (Input.GetAxisRaw("Vertical") > 0)
+            else if (Input.GetAxisRaw("Vertical") > 0)
             {
                 movePoint.transform.position += new Vector3(0, TILE_SIZE * direction, 0);
             }
-            if (Input.GetAxisRaw("Vertical") < 0)
+            else if (Input.GetAxisRaw("Vertical") < 0)
             {
                 movePoint.transform.position += new Vector3(0, -TILE_SIZE * direction, 0);
             }
