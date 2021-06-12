@@ -12,7 +12,8 @@ public class PlayerMovement : MonoBehaviour
     private int direction;
     
     private const float TILE_SIZE = 1.0f;
-
+    private const float MAX_WIDTH = 10.0f;
+    private const float MAX_HEIGHT = 5.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,23 +46,35 @@ public class PlayerMovement : MonoBehaviour
 
             if (Input.GetAxisRaw("Horizontal") > 0)
             {
-                if (!(gameObject.transform.position.x + TILE_SIZE > 5)) { 
-                    movePoint.transform.position += new Vector3(TILE_SIZE * direction, 0, 0);
+                    //Clamps position between MAX_WIDTH
+                    movePoint.transform.position = new Vector3(Mathf.Clamp(movePoint.transform.position.x + (TILE_SIZE * direction), -MAX_WIDTH, MAX_WIDTH), 
+                    movePoint.transform.position.y,
+                    movePoint.transform.position.z);
                     playerSprite.flipX = true;
-                }
             }
             else if (Input.GetAxisRaw("Horizontal") < 0)
             {
-                movePoint.transform.position += new Vector3(-TILE_SIZE * direction, 0, 0);
+                //movePoint.transform.position += new Vector3(-TILE_SIZE * direction, 0, 0);
+                //Clamps position between MAX_WIDTH
+                movePoint.transform.position = new Vector3(Mathf.Clamp(movePoint.transform.position.x + (-TILE_SIZE * direction), -MAX_WIDTH, MAX_WIDTH), 
+                movePoint.transform.position.y,
+                movePoint.transform.position.z);
                 playerSprite.flipX = false;
             }
             else if (Input.GetAxisRaw("Vertical") > 0)
             {
-                movePoint.transform.position += new Vector3(0, TILE_SIZE * direction, 0);
+                //movePoint.transform.position += new Vector3(0, TILE_SIZE * direction, 0);
+                //Clamps position between MAX_HEIGHT
+                movePoint.transform.position = new Vector3(movePoint.transform.position.x, 
+                Mathf.Clamp(movePoint.transform.position.y + (TILE_SIZE * direction), -MAX_HEIGHT, MAX_HEIGHT-1),
+                movePoint.transform.position.z);
             }
             else if (Input.GetAxisRaw("Vertical") < 0)
             {
-                movePoint.transform.position += new Vector3(0, -TILE_SIZE * direction, 0);
+                //Clamps position between MAX_HEIGHT
+                movePoint.transform.position = new Vector3(movePoint.transform.position.x, 
+                Mathf.Clamp(movePoint.transform.position.y + (-TILE_SIZE * direction), -MAX_HEIGHT, MAX_HEIGHT-1),
+                movePoint.transform.position.z);
             }
         }
 
