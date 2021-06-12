@@ -42,10 +42,9 @@ GameObject:
   - component: {fileID: 7029145791337868238}
   - component: {fileID: 7029145791337868237}
   - component: {fileID: 2000767308211419175}
-  - component: {fileID: 1003388399076247367}
   m_Layer: 6
   m_Name: PlantGuy(With Sound)
-  m_TagString: Untagged
+  m_TagString: plantdude
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -80,6 +79,7 @@ MonoBehaviour:
   isPlant: 1
   movePoint: {fileID: 7029145791121988429}
   moveSpeed: 5
+  playerSprite: {fileID: 7029145791337868237}
 --- !u!212 &7029145791337868237
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -147,8 +147,8 @@ BoxCollider2D:
   m_Offset: {x: 0.025890946, y: 0.23610532}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.53074884, y: 0.2620674}
-    oldSize: {x: 2.488, y: 3.2}
+    pivot: {x: 0.5234278, y: 0.21311478}
+    oldSize: {x: 6.22, y: 8}
     newSize: {x: 2.488, y: 3.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -157,24 +157,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.9092348, y: 0.5456917}
   m_EdgeRadius: 0
---- !u!50 &1003388399076247367
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7029145791337868236}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
