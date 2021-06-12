@@ -21,9 +21,9 @@ public class Interactable : MonoBehaviour
     public float fadeTime = 4f;
     public float growDuration = 4f;
 
-    private Coroutine growCoroutine;
+    private List<Coroutine> growCoroutines = new List<Coroutine>();
     private List<Coroutine> fadeOutCoroutines = new List<Coroutine>();
-    private Coroutine fadeInCoroutine;
+    private List<Coroutine> fadeInCoroutines = new List<Coroutine>();
 
     public enum ThingState
     {
@@ -52,36 +52,40 @@ public class Interactable : MonoBehaviour
     {
         if (thingState == ThingState.Dead)
         {
+            Debug.Log("DEAD");
             Destroy(gameObject, destroyDelay);
         }
         else if (thingState == ThingState.Dying)
         {
+            Debug.Log("DYING");
             if (fadeOutCoroutines.Count == 0)
             {
                 foreach (SpriteRenderer renderer in renderers)
                 {
-                    fadeOutCoroutines.Add(StartCoroutine(FadeTo(renderer, 0f, fadeTime)));
+                    FadeOut(renderer);
                 }
             }
         }
         else if (thingState == ThingState.Growing)
         {
-            foreach (Coroutine fadeOutCoroutine in fadeOutCoroutines)
-            {
-                StopCoroutine(fadeOutCoroutine);
-            }
-            fadeOutCoroutines.Clear();
+            Debug.Log("GROWING");
+            ClearCoroutines(fadeOutCoroutines);
 
-            foreach (SpriteRenderer renderer in renderers)
+            if (fadeInCoroutines.Count == 0)
             {
-                fadeInCoroutine = StartCoroutine(FadeTo(renderer, 1.0f, fadeTime));
+                foreach (SpriteRenderer renderer in renderers)
+                {
+                    FadeIn(renderer);
+                }
             }
 
             float randGrowthFactor = scales[Random.Range(0, scales.Length)];
 
-            // Only start scaling, if it's even a bigger number
+            // Only start scaling, if it's a bigger number
             if (randGrowthFactor > gameObject.transform.localScale.x)
-                growCoroutine = StartCoroutine(GrowTo(randGrowthFactor, growDuration));
+            {
+                growCoroutines.Add(StartCoroutine(GrowTo(randGrowthFactor, growDuration)));
+            }
         }
     }
 
@@ -120,6 +124,15 @@ public class Interactable : MonoBehaviour
         }
     }
 
+    private void ClearCoroutines(List<Coroutine> coroutines)
+    {
+        foreach (Coroutine coroutine in coroutines)
+        {
+            StopCoroutine(coroutine);
+        }
+        coroutines.Clear();
+    }
+
     IEnumerator FadeTo(SpriteRenderer renderer, float targetOpacity, float duration)
     {
         isDoneFading = false;
@@ -146,52 +159,22 @@ public class Interactable : MonoBehaviour
         {
             if (color.a <= 0f)
             {
-                Debug.Log("dead");
                 thingState = ThingState.Dead;
             }
             else
             {
-                Debug.Log("dying, color.a: " + color.a);
                 thingState = ThingState.Dying;
             }
         }
     }
 
-    /*IEnumerator FadeOutAndKill(float aTime)
+    private void FadeOut(SpriteRenderer renderer)
     {
-        foreach (SpriteRenderer sr in renderers)
-        {
-            float alpha = sr.color.a;
-            Color colOrig = sr.color;
-
-            for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / aTime)
-            {
-                Color newColor = new Color(colOrig.r, colOrig.g, colOrig.b, Mathf.Lerp(alpha, 0, t));
-                sr.color = newColor;
-                yield return null;
-            }
-        }
-
-        thingState = ThingState.Dead;
-    }*/
-
-    /*
-    private IEnumerator FadeOut()
-    {
-        SpriteRenderer spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
-
-        Color tmp = spriteRenderer.color;
-        spriteRenderer.color = tmp;
-        float _progress = 0.0f;
-
-        while (_progress < 1)
-        {
-
-            Color _tmpColor = spriteRenderer.color;
-            gameObject.GetComponentInChildren<SpriteRenderer>().color = new Color(_tmpColor.r, _tmpColor.g, _tmpColor.b, Mathf.Lerp(tmp.a, 0, _progress));
-            _progress += Time.deltaTime;
-            yield return null;
-        }
+        fadeOutCoroutines.Add(StartCoroutine(FadeTo(renderer, 0f, fadeTime)));
     }
-    */
+
+    private void FadeIn(SpriteRenderer renderer)
+    {
+        fadeInCoroutines.Add(StartCoroutine(FadeTo(renderer, 1f, fadeTime)));
+    }
 }
