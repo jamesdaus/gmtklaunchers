@@ -7,6 +7,8 @@ namespace MrushumeMan.SeanManagement
 {
     public class SceneLoader : MonoBehaviour
     {
+        [SerializeField] int sceneLoadTime = 2;
+
         void Start()
         {
             
@@ -29,7 +31,16 @@ namespace MrushumeMan.SeanManagement
 
         public void LoadNextScean()
         {
-
+            StartCoroutine(GetNextScene());
+        }
+        
+        private IEnumerator GetNextScene()
+        {
+            DontDestroyOnLoad(gameObject);
+            yield return new WaitForSeconds(sceneLoadTime);
+            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+            yield return new WaitForSeconds(sceneLoadTime);
+            Destroy(gameObject);
         }
     }
 }
