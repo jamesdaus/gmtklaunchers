@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2830086211463701604}
   - component: {fileID: 7875229804343865088}
   - component: {fileID: -8208918571179198601}
+  - component: {fileID: 6133314840370698495}
   m_Layer: 0
   m_Name: mushPOWER BACKUP
   m_TagString: Untagged
@@ -101,7 +102,7 @@ BoxCollider2D:
   m_Offset: {x: 0.10130771, y: -1.2474765}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5322014, y: 0.046903428}
     oldSize: {x: 3.5, y: 3}
     newSize: {x: 12.42, y: 14.02}
     adaptiveTilingThreshold: 0.5
@@ -145,3 +146,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &6133314840370698495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8528082463015754403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d08bc2fb40ed44a449c375ad09df822b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClips: []
+  audioSource: {fileID: 0}

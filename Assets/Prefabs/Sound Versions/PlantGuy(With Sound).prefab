@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 2000767308211419175}
   - component: {fileID: 1003388399076247367}
   m_Layer: 6
-  m_Name: PlantGuy(With RB)
+  m_Name: PlantGuy(With Sound)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
