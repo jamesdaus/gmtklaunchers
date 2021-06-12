@@ -37,7 +37,11 @@ public class Spawner : MonoBehaviour
                 Transform newSprite = newSpawn.transform.GetChild(0);
                 newSprite.GetComponent<SpriteRenderer>().sortingOrder = (int)(((-spot.y)+25) * 100); //Ordering madness
                 newSprite.GetComponent<SpriteRenderer>().flipX = Random.Range(0,2) == 1 ? true : false;
-                //newSprite.rotation = new Quaternion(0f, 0f, Random.Range(0f,0.3f), 0f);
+                newSprite.transform.Rotate(new Vector3(0,0,Random.Range(-10,10)));
+                float newScale = Random.Range(.25f,.4f);
+                newSpawn.transform.localScale = new Vector3(newScale, newScale, 1);
+                //newSprite.transform.localScale = new Vector3(10,10,10);
+                //newSprite.localScale = new Vector3(10,10,10);
             }
         }
         else {

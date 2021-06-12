@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (Input.GetAxisRaw("Horizontal") > 0)
             {
-                if (!(gameObject.transform.position.x + TILE_SIZE > 20)) { 
+                if (!(gameObject.transform.position.x + TILE_SIZE > 5)) { 
                     movePoint.transform.position += new Vector3(TILE_SIZE * direction, 0, 0);
                     playerSprite.flipX = true;
                 }
