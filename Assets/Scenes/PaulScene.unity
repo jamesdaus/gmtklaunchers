@@ -2837,6 +2837,22 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 540903938865707638, guid: 6b3456eb0d7081143ae2ad5dbdcd2d99, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 540903938865707638, guid: 6b3456eb0d7081143ae2ad5dbdcd2d99, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 540903938865707638, guid: 6b3456eb0d7081143ae2ad5dbdcd2d99, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 540903938865707638, guid: 6b3456eb0d7081143ae2ad5dbdcd2d99, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2000767308211419175, guid: 6b3456eb0d7081143ae2ad5dbdcd2d99, type: 3}
       propertyPath: m_IsTrigger
       value: 0

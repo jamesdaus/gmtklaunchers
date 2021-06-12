@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    public float destroyDelay = 0.25f;
-    private const float TIMER_DEATH_TICK = 1f;
-    private float currentTimer; // Depending on state, this timer tracks the time left for that state thing
+    SpriteRenderer[] renderers;
+    public float destroyDelay = 0.01f;
+    public float fadeOutTime = 4f;
 
     public enum ThingState
     {
@@ -19,37 +19,27 @@ public class Interactable : MonoBehaviour
     public string blop;
     public ThingState thingState;
 
+    void Awake()
+    {
+        renderers = GetComponentsInChildren<SpriteRenderer>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         thingState = ThingState.Dying; // Start as dying
-        currentTimer = TIMER_DEATH_TICK; // Start with death timer
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Timer, counts down and resets every X seconds
-        if (currentTimer <= 0.0f)
+        if (thingState == ThingState.Dead)
         {
-            if (thingState == ThingState.Dying)
-            {
-                currentTimer = TIMER_DEATH_TICK;
-                SpriteRenderer spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
-                Color tmpCol = spriteRenderer.color;
-
-                spriteRenderer.color = new Color(tmpCol.r, tmpCol.g, tmpCol.b, Mathf.Lerp(tmpCol.a, 0, currentTimer * Time.deltaTime));
-
-                if (spriteRenderer.color.a < 0f)
-                {
-                    Destroy(gameObject);
-                }
-            }
+            Destroy(gameObject, destroyDelay);
         }
-        else
+        else if (thingState == ThingState.Dying)
         {
-            currentTimer -= Time.deltaTime;
+            StartCoroutine(FadeOutAndKill(fadeOutTime));
         }
     }
 
@@ -57,8 +47,52 @@ public class Interactable : MonoBehaviour
     {
         if (other.gameObject.tag == blop)
         {
-            Destroy(gameObject, destroyDelay);
-
+            thingState = ThingState.Dead;
         }
     }
+
+    IEnumerator FadeOutAndKill(float aTime)
+    {
+        float alphaDiff = 0f;
+
+        foreach (SpriteRenderer sr in renderers)
+        {
+            float alpha = sr.color.a;
+            Color colOrig = sr.color;
+
+            if (alpha < 1.0f)
+            {
+                alphaDiff = 1.0f - alpha;
+            }
+
+            for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / aTime)
+            {
+                Color newColor = new Color(colOrig.r, colOrig.g, colOrig.b, Mathf.Lerp(alpha, 0, t));
+                sr.color = newColor;
+                yield return null;
+            }
+        }
+
+        thingState = ThingState.Dead;
+    }
+
+    /*
+    private IEnumerator FadeOut()
+    {
+        SpriteRenderer spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
+
+        Color tmp = spriteRenderer.color;
+        spriteRenderer.color = tmp;
+        float _progress = 0.0f;
+
+        while (_progress < 1)
+        {
+
+            Color _tmpColor = spriteRenderer.color;
+            gameObject.GetComponentInChildren<SpriteRenderer>().color = new Color(_tmpColor.r, _tmpColor.g, _tmpColor.b, Mathf.Lerp(tmp.a, 0, _progress));
+            _progress += Time.deltaTime;
+            yield return null;
+        }
+    }
+    */
 }
