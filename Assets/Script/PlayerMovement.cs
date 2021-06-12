@@ -57,5 +57,7 @@ public class PlayerMovement : MonoBehaviour
                 movePoint.transform.position += new Vector3(0, -TILE_SIZE * direction, 0);
             }
         }
+
+        //Collider2D collision = Physics2D.OverlapCircle(position, attackSize, enemy);
     }
 }
