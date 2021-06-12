@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 9020911245971693801}
   - component: {fileID: 3785942138015665084}
   m_Layer: 7
-  m_Name: FungusGuy 1
+  m_Name: FungusGuy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
