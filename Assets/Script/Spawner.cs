@@ -6,7 +6,7 @@ public class Spawner : MonoBehaviour
 {
 
     private float timer;
-    public GameObject obj;
+    public GameObject[] objArray;
 
     private const float TOTAL_TIMER = 1.0f;
 
@@ -22,7 +22,8 @@ public class Spawner : MonoBehaviour
         //Timer, counts down and resets every 1 second
         if (timer <= 0.0f) {
             timer = TOTAL_TIMER;
-            Instantiate(obj, new Vector3(Random.Range(-2,2), Random.Range(-2,2)), Quaternion.identity);
+            Instantiate(objArray[0], new Vector3(Random.Range(-2,2), Random.Range(-2,2)), Quaternion.identity);
+            Instantiate(objArray[1], new Vector3(Random.Range(-2,2), Random.Range(-2,2)), Quaternion.identity);
         }
         else {
             timer -= Time.deltaTime;

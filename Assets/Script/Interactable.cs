@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
+
+    public string blop;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +21,8 @@ public class Interactable : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-        Destroy(gameObject);
+        if (other.gameObject.tag == blop) {
+            Destroy(gameObject);
+        }
     }
 }
