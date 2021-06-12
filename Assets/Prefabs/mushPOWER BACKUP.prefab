@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7875229804343865088}
   - component: {fileID: -8208918571179198601}
   m_Layer: 0
-  m_Name: mushPOWER
+  m_Name: mushPOWER BACKUP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
