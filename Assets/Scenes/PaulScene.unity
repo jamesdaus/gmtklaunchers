@@ -294,9 +294,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: FungusGuy
       objectReference: {fileID: 0}
+    - target: {fileID: 4668210861228580060, guid: 9b3a2b6e7a0c7c34a9a0e375600477bb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6cbb4ddfc113da348af07a6a82159485, type: 3}
+    - target: {fileID: 4668210861228580060, guid: 9b3a2b6e7a0c7c34a9a0e375600477bb, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4668210861228580061, guid: 9b3a2b6e7a0c7c34a9a0e375600477bb, type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668210861228580061, guid: 9b3a2b6e7a0c7c34a9a0e375600477bb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668210861228580061, guid: 9b3a2b6e7a0c7c34a9a0e375600477bb, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668210861228580061, guid: 9b3a2b6e7a0c7c34a9a0e375600477bb, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.23
       objectReference: {fileID: 0}
     - target: {fileID: 4668210861228580061, guid: 9b3a2b6e7a0c7c34a9a0e375600477bb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -411,7 +431,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
