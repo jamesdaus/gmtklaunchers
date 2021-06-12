@@ -12,14 +12,14 @@ public class SoundPlayer : MonoBehaviour
 
     void Start()
     {
-        pickupSound = GameObject.FindObjectOfType<AudioSource>().GetComponent<AudioSource>();
+        pickupSound = GetComponent<AudioSource>();
     }
 
 
     void OnCollisionEnter2D(Collision2D other)
     {
 
-        if(gameObject.tag == transform.tag && gameObject != this)
+        if(other.gameObject.layer == gameObject.layer)
         {
             Debug.Log(other.gameObject.name);
             Debug.Log(other.transform.tag + " " + gameObject.name);
@@ -33,8 +33,8 @@ public class SoundPlayer : MonoBehaviour
 
         int randomAudioClip = Random.Range(0, audioClips.Length);
 
-        pickupSound.PlayOneShot(audioClips[0]);
-        
+        pickupSound.PlayOneShot(audioClips[randomAudioClip]);
+
         transform.parent = null;
         Destroy(gameObject, DestroyTimer);
     }
