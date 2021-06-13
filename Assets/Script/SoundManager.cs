@@ -5,18 +5,33 @@ using UnityEngine.Events;
 
 public class SoundManager : MonoBehaviour
 {
+    [SerializeField] AudioSource audioSource;
 
-    public UnityEvent playsound;
+    [SerializeField] AudioClip audioClip;
     
-    void Awake()
+    private void Awake()
     {
-        SoundPlayer sp = GetComponent<SoundPlayer>();
-        //playsound.AddListener(sp.PlaySound());
+        audioSource.PlayOneShot(audioClip);
 
-        //transform.parent = null;
-    }
-    void Action()
-    {
+        var instance = FindObjectsOfType<SoundManager>().Length;
+        if(instance > 1)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+        }
         
     }
+    /*int numMusicPlayer = FindObjectsOfType<Sound_Manager>().Length;
+        if (numMusicPlayer > 1)
+        {
+            Destroy(gameObject);
+}
+        else
+{
+    DontDestroyOnLoad(gameObject);
+}*/
+
 }
