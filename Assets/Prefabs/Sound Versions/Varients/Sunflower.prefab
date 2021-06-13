@@ -91,6 +91,22 @@ PrefabInstance:
       propertyPath: pickedUpBy
       value: plantdude
       objectReference: {fileID: 0}
+    - target: {fileID: 7875229804343865088, guid: d5255762285cdd641af10277d366669f, type: 3}
+      propertyPath: sprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7875229804343865088, guid: d5255762285cdd641af10277d366669f, type: 3}
+      propertyPath: sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: efeb8f3b1f8acca4d881dd99a2e467e9, type: 3}
+    - target: {fileID: 7875229804343865088, guid: d5255762285cdd641af10277d366669f, type: 3}
+      propertyPath: sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: a82fc50a1d2b0d041bec378ded0cacf7, type: 3}
+    - target: {fileID: 7875229804343865088, guid: d5255762285cdd641af10277d366669f, type: 3}
+      propertyPath: sprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 717f52d98a226ec49932265100ab99e9, type: 3}
     - target: {fileID: 8528082463015754403, guid: d5255762285cdd641af10277d366669f, type: 3}
       propertyPath: m_Name
       value: Sunflower

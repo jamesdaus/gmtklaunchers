@@ -111,6 +111,22 @@ PrefabInstance:
       propertyPath: pickedUpBy
       value: funguy
       objectReference: {fileID: 0}
+    - target: {fileID: 7875229804343865088, guid: d5255762285cdd641af10277d366669f, type: 3}
+      propertyPath: sprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7875229804343865088, guid: d5255762285cdd641af10277d366669f, type: 3}
+      propertyPath: sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: cf7db0abbb1717d4ea2446a6039dabc9, type: 3}
+    - target: {fileID: 7875229804343865088, guid: d5255762285cdd641af10277d366669f, type: 3}
+      propertyPath: sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 7ca2bd9d8ea59cc4bab11848f5fc92c9, type: 3}
+    - target: {fileID: 7875229804343865088, guid: d5255762285cdd641af10277d366669f, type: 3}
+      propertyPath: sprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: aceb4324ee8cc4643859417abe5b3c43, type: 3}
     - target: {fileID: 8528082463015754403, guid: d5255762285cdd641af10277d366669f, type: 3}
       propertyPath: m_Name
       value: MushPower

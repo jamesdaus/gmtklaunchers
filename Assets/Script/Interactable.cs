@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Interactable : MonoBehaviour
 {
     SpriteRenderer[] renderers;
+    public Sprite[] sprites;
 
     private float destroyGameObjectDelay = 0.01f;
 
@@ -13,12 +15,17 @@ public class Interactable : MonoBehaviour
     private float dieSpeed = 0.5f;
     private float reviveSpeed = 0.5f;
 
+    private float goldTimer = 15f;
+
+    public TextMeshPro score;
+
     public enum ThingState
     {
         Reviving,
         Dying,
         Growing,
-        Dead
+        Dead,
+        Golden
     }
 
     public string pickedUpBy;
@@ -36,51 +43,64 @@ public class Interactable : MonoBehaviour
 
     void Update()
     {
-        if (thingState == ThingState.Dead)
-        {
-            DestroyInteractable();
-        }
-        if (thingState == ThingState.Growing)
-        {
-            if (gameObject.transform.localScale.x <= 1.0f)
+        if (goldTimer >= 0) {
+            
+            goldTimer -= Time.deltaTime;
+
+            if (thingState == ThingState.Dead)
             {
-                GrowInteractable(growSpeed);
+                DestroyInteractable();
             }
-            else
+            else if (thingState == ThingState.Growing)
             {
-                thingState = ThingState.Dying;
-                //SPRITE CHANGE HERE
-            }
-        }
-        if (thingState == ThingState.Dying)
-        {
-            foreach (SpriteRenderer renderer in renderers)
-            {
-                if (renderer.color.a > 0.01f)
+                if (gameObject.transform.localScale.x <= 1.0f)
                 {
-                    KillInteractable(dieSpeed);
-                }
-                else
-                {
-                    thingState = ThingState.Dead;
-                }
-            }
-        }
-        if (thingState == ThingState.Reviving)
-        {
-            foreach (SpriteRenderer renderer in renderers)
-            {
-                if (renderer.color.a < .99f)
-                {
-                    ReviveInteractable(reviveSpeed);
+                    GrowInteractable(growSpeed);
                 }
                 else
                 {
                     thingState = ThingState.Dying;
-                    //SPRITE CHANGE HERE
+                    renderers[0].sprite = sprites[1];
+                }
+            }
+            else if (thingState == ThingState.Dying)
+            {
+                foreach (SpriteRenderer renderer in renderers)
+                {
+                    if (renderer.color.a > 0.01f)
+                    {
+                        KillInteractable(dieSpeed);
+                    }
+                    else
+                    {
+                        thingState = ThingState.Dead;
+                    }
+                }
+            }
+            else if (thingState == ThingState.Reviving)
+            {
+                foreach (SpriteRenderer renderer in renderers)
+                {
+                    if (renderer.color.a < .99f)
+                    {
+                        ReviveInteractable(reviveSpeed);
+                    }
+                    else
+                    {
+                        thingState = ThingState.Dying;
+                        renderers[0].sprite = sprites[1];
+                    }
                 }
             }
         }
+        else if (thingState != ThingState.Golden) {
+            renderers[0].sprite = sprites[2];
+            renderers[0].color = new Color(renderers[0].color.r, renderers[0].color.g, renderers[0].color.b, 255);
+            thingState = ThingState.Golden;
+            Debug.Log("GOLD!");
+            //ADD THE SCORE HERE! IT WILL ONLY HAPPEN ONCE!
+        }
+        
     }
 
     private void OnCollisionStay2D(Collision2D other)
@@ -91,7 +111,7 @@ public class Interactable : MonoBehaviour
             {
                 // Start reviving, when walking over dying interactable
                 thingState = ThingState.Reviving;
-                //SPRITE CHANGE HERE
+                renderers[0].sprite = sprites[0];
             }
         }
     }

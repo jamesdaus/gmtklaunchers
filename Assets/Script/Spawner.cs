@@ -51,8 +51,8 @@ public class Spawner : MonoBehaviour
                 newSprite.GetComponent<SpriteRenderer>().sortingOrder = (int)(((-spot.y) + 25) * 100); //Ordering madness
                 newSprite.GetComponent<SpriteRenderer>().flipX = Random.Range(0, 2) == 1 ? true : false;
                 newSprite.transform.Rotate(new Vector3(0, 0, Random.Range(-10, 10)));
-                float newScale = scales[Random.Range(0, scales.Length)];
-                newSpawn.transform.localScale = new Vector3(newScale, newScale, 1);
+                //float newScale = scales[Random.Range(0, scales.Length)];
+                //newSpawn.transform.localScale = new Vector3(newScale, newScale, 1);
             }
         }
         else
