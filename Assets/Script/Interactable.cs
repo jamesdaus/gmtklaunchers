@@ -7,7 +7,7 @@ public class Interactable : MonoBehaviour
     SpriteRenderer[] renderers;
     public float destroyGameObjectDelay = 0.01f;
     public float growSpeed = 0.5f;
-    public float dieSpeed = 1f;
+    public float dieSpeed = 0.05f;
 
     public enum ThingState
     {
@@ -49,13 +49,16 @@ public class Interactable : MonoBehaviour
         }
         if (thingState == ThingState.Dying)
         {
-            if (gameObject.transform.localScale.x >= 0f)
+            foreach (SpriteRenderer renderer in renderers)
             {
-                KillInteractable(dieSpeed);
-            }
-            else
-            {
-                thingState = ThingState.Dead;
+                if (renderer.color.a > 0f)
+                {
+                    KillInteractable(dieSpeed);
+                }
+                else
+                {
+                    thingState = ThingState.Dead;
+                }
             }
         }
     }
@@ -80,12 +83,27 @@ public class Interactable : MonoBehaviour
 
     private void KillInteractable(float dieSpeed)
     {
+        foreach (SpriteRenderer renderer in renderers)
+        {
+            float alphaStep = Time.deltaTime * dieSpeed;
+
+            renderer.color -= new Color(
+                0,
+                0,
+                0,
+                alphaStep
+            );
+        }
+    }
+
+    /*private void KillInteractable(float dieSpeed)
+    {
         gameObject.transform.localScale -= new Vector3(
             Time.deltaTime * dieSpeed,
             Time.deltaTime * dieSpeed,
             0
         );
-    }
+    }*/
 
     private void DestroyInteractable()
     {
