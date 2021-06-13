@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
                     movePoint.transform.position = new Vector3(Mathf.Clamp(movePoint.transform.position.x + (TILE_SIZE * direction), -MAX_WIDTH, MAX_WIDTH), 
                     movePoint.transform.position.y,
                     movePoint.transform.position.z);
-                    playerSprite.flipX = true;
+                    playerSprite.flipX = false;
             }
             else if (Input.GetAxisRaw("Horizontal") < 0)
             {
@@ -59,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
                 movePoint.transform.position = new Vector3(Mathf.Clamp(movePoint.transform.position.x + (-TILE_SIZE * direction), -MAX_WIDTH, MAX_WIDTH), 
                 movePoint.transform.position.y,
                 movePoint.transform.position.z);
-                playerSprite.flipX = false;
+                playerSprite.flipX = true;
             }
             else if (Input.GetAxisRaw("Vertical") > 0)
             {

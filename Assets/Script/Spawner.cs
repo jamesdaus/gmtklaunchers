@@ -34,12 +34,12 @@ public class Spawner : MonoBehaviour
         {
             timer = TOTAL_TIMER;
 
-            Vector3 spot = new Vector3(Random.Range(-1, 1), Random.Range(-2, 2));
+            Vector3 spot = new Vector3(Random.Range(-5, 5), Random.Range(-4, 4));
 
             int ct = 0;
             while (Physics2D.OverlapCircle(spot, .1f) != null && ct < 10)
             {
-                spot = new Vector3(Random.Range(-1, 1), Random.Range(-2, 2));
+                spot = new Vector3(Random.Range(-5, 5), Random.Range(-4, 4));
                 ct++;
             }
 
@@ -53,8 +53,6 @@ public class Spawner : MonoBehaviour
                 newSprite.transform.Rotate(new Vector3(0, 0, Random.Range(-10, 10)));
                 float newScale = scales[Random.Range(0, scales.Length)];
                 newSpawn.transform.localScale = new Vector3(newScale, newScale, 1);
-                //newSprite.transform.localScale = new Vector3(10,10,10);
-                //newSprite.localScale = new Vector3(10,10,10);
             }
         }
         else

@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 540903938865707639}
   - component: {fileID: 540903938865707638}
   - component: {fileID: 540903938865707625}
+  - component: {fileID: 1666430102178864864}
   m_Layer: 6
   m_Name: PlantGuy
   m_TagString: plantdude
@@ -158,6 +159,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.6943724, y: 0.7298593}
   m_EdgeRadius: 0
+--- !u!95 &1666430102178864864
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 540903938865707624}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3ce5c388d3854c448baf13d9d4587b53, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5407424931742818405
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,7 +189,7 @@ GameObject:
   - component: {fileID: 6910580115689416541}
   - component: {fileID: 5211075915079645320}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -183,8 +203,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5407424931742818405}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.02, y: -0.04, z: 0}
-  m_LocalScale: {x: 2.8488603, y: 0.968, z: 1}
+  m_LocalPosition: {x: 0.07, y: -0.09, z: 0}
+  m_LocalScale: {x: 0.88884443, y: 0.361064, z: 1}
   m_Children: []
   m_Father: {fileID: 540903938865707636}
   m_RootOrder: 1
@@ -229,12 +249,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 0.088307664, g: 0.08272517, b: 0.122641504, a: 0.6509804}
+  m_Sprite: {fileID: 21300000, guid: 8842b53105ee8f242bac6e910660be4e, type: 3}
+  m_Color: {r: 0.088307664, g: 0.08272517, b: 0.122641504, a: 0.627451}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.56, y: 2.56}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

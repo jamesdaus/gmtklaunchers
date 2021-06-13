@@ -10,8 +10,8 @@ public class Interactable : MonoBehaviour
 
     private float growSpeed = 0.5f;
 
-    private float dieSpeed = 0.05f;
-    private float reviveSpeed = 0.05f;
+    private float dieSpeed = 0.5f;
+    private float reviveSpeed = 0.5f;
 
     public enum ThingState
     {
@@ -55,7 +55,7 @@ public class Interactable : MonoBehaviour
         {
             foreach (SpriteRenderer renderer in renderers)
             {
-                if (renderer.color.a > 0.001f)
+                if (renderer.color.a > 0.01f)
                 {
                     KillInteractable(dieSpeed);
                 }
@@ -69,7 +69,7 @@ public class Interactable : MonoBehaviour
         {
             foreach (SpriteRenderer renderer in renderers)
             {
-                if (renderer.color.a < 0.001f)
+                if (renderer.color.a < .99f)
                 {
                     ReviveInteractable(reviveSpeed);
                 }
@@ -81,7 +81,7 @@ public class Interactable : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnCollisionStay2D(Collision2D other)
     {
         if (other.gameObject.tag == pickedUpBy)
         {
@@ -107,13 +107,12 @@ public class Interactable : MonoBehaviour
         foreach (SpriteRenderer renderer in renderers)
         {
             float alphaStep = Time.deltaTime * dieSpeed;
-            float startOpacity = renderer.color.a;
 
             renderer.color = new Color(
                 renderer.color.r,
                 renderer.color.g,
                 renderer.color.b,
-                Mathf.Lerp(startOpacity, 0f, alphaStep)
+                Mathf.Lerp(renderer.color.a, 0f, alphaStep)
             );
         }
     }
@@ -123,13 +122,20 @@ public class Interactable : MonoBehaviour
         foreach (SpriteRenderer renderer in renderers)
         {
             float alphaStep = Time.deltaTime * reviveSpeed;
-            float startOpacity = renderer.color.a;
+
+            float startOpacity;
+            if (renderer.sprite.name == "shadow") {
+                startOpacity = 0.5f;
+            }
+            else {
+                startOpacity = 1.0f;
+            }
 
             renderer.color = new Color(
                 renderer.color.r,
                 renderer.color.g,
                 renderer.color.b,
-                Mathf.Lerp(0f, startOpacity, alphaStep)
+                Mathf.Lerp(renderer.color.a, startOpacity, alphaStep)
             );
         }
     }
