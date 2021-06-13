@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Spawner : MonoBehaviour
 {
@@ -15,24 +16,38 @@ public class Spawner : MonoBehaviour
         1.0f
     };
 
-    private float timer;
+    private float spawn_timer;
+    private float game_timer;
     public GameObject[] objArray;
 
-    private const float TOTAL_TIMER = 1.0f;
+    private const float TOTAL_SPAWN_TIMER = 1.0f;
+    private const float TOTAL_GAME_TIMER = 30.0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        timer = TOTAL_TIMER;
+        spawn_timer = TOTAL_SPAWN_TIMER;
+        game_timer = TOTAL_GAME_TIMER;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (game_timer <= 0.0f) {
+            //THIS IS THE TOTAL TIME OF THE GAME RUNNING OUT, ADD SCORE DISPLAY AND RELOAD MENU HERE!
+            
+            SceneManager.LoadScene(0);
+        }
+        else {
+            game_timer -= Time.deltaTime;
+        }
+
+
         //Timer, counts down and resets every 1 second
-        if (timer <= 0.0f)
+        if (spawn_timer <= 0.0f)
         {
-            timer = TOTAL_TIMER;
+            spawn_timer = TOTAL_SPAWN_TIMER;
 
             Vector3 spot = new Vector3(Random.Range(-5, 5), Random.Range(-4, 4));
 
@@ -57,7 +72,7 @@ public class Spawner : MonoBehaviour
         }
         else
         {
-            timer -= Time.deltaTime;
+            spawn_timer -= Time.deltaTime;
         }
     }
 }

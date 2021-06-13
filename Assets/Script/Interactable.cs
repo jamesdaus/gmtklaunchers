@@ -97,8 +97,8 @@ public class Interactable : MonoBehaviour
             renderers[0].sprite = sprites[2];
             renderers[0].color = new Color(renderers[0].color.r, renderers[0].color.g, renderers[0].color.b, 255);
             thingState = ThingState.Golden;
-            Debug.Log("GOLD!");
-            //ADD THE SCORE HERE! IT WILL ONLY HAPPEN ONCE!
+
+            //ADD THE SCORE HERE! IT WILL ONLY HAPPEN ONCE! JUST DO SCORE+=1
         }
         
     }
