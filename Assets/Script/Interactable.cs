@@ -5,13 +5,17 @@ using UnityEngine;
 public class Interactable : MonoBehaviour
 {
     SpriteRenderer[] renderers;
-    public float destroyGameObjectDelay = 0.01f;
-    public float growSpeed = 0.5f;
-    public float dieSpeed = 0.05f;
+
+    private float destroyGameObjectDelay = 0.01f;
+
+    private float growSpeed = 0.5f;
+
+    private float dieSpeed = 0.05f;
+    private float reviveSpeed = 0.05f;
 
     public enum ThingState
     {
-        Watered,
+        Reviving,
         Dying,
         Growing,
         Dead
@@ -27,7 +31,7 @@ public class Interactable : MonoBehaviour
 
     void Start()
     {
-        thingState = ThingState.Dying; // Start as dying
+        thingState = ThingState.Growing; // Start as dying
     }
 
     void Update()
@@ -51,7 +55,7 @@ public class Interactable : MonoBehaviour
         {
             foreach (SpriteRenderer renderer in renderers)
             {
-                if (renderer.color.a > 0f)
+                if (renderer.color.a > 0.001f)
                 {
                     KillInteractable(dieSpeed);
                 }
@@ -61,14 +65,31 @@ public class Interactable : MonoBehaviour
                 }
             }
         }
+        if (thingState == ThingState.Reviving)
+        {
+            foreach (SpriteRenderer renderer in renderers)
+            {
+                if (renderer.color.a < 0.001f)
+                {
+                    ReviveInteractable(reviveSpeed);
+                }
+                else
+                {
+                    thingState = ThingState.Dying;
+                }
+            }
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == pickedUpBy)
         {
-            Debug.Log("Walked over Interactable. Set state to growing.");
-            thingState = ThingState.Growing;
+            if (thingState == ThingState.Dying)
+            {
+                // Start reviving, when walking over dying interactable
+                thingState = ThingState.Reviving;
+            }
         }
     }
 
@@ -86,24 +107,32 @@ public class Interactable : MonoBehaviour
         foreach (SpriteRenderer renderer in renderers)
         {
             float alphaStep = Time.deltaTime * dieSpeed;
+            float startOpacity = renderer.color.a;
 
-            renderer.color -= new Color(
-                0,
-                0,
-                0,
-                alphaStep
+            renderer.color = new Color(
+                renderer.color.r,
+                renderer.color.g,
+                renderer.color.b,
+                Mathf.Lerp(startOpacity, 0f, alphaStep)
             );
         }
     }
 
-    /*private void KillInteractable(float dieSpeed)
+    private void ReviveInteractable(float reviveSpeed)
     {
-        gameObject.transform.localScale -= new Vector3(
-            Time.deltaTime * dieSpeed,
-            Time.deltaTime * dieSpeed,
-            0
-        );
-    }*/
+        foreach (SpriteRenderer renderer in renderers)
+        {
+            float alphaStep = Time.deltaTime * reviveSpeed;
+            float startOpacity = renderer.color.a;
+
+            renderer.color = new Color(
+                renderer.color.r,
+                renderer.color.g,
+                renderer.color.b,
+                Mathf.Lerp(0f, startOpacity, alphaStep)
+            );
+        }
+    }
 
     private void DestroyInteractable()
     {
