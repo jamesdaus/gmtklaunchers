@@ -49,6 +49,7 @@ public class Interactable : MonoBehaviour
             else
             {
                 thingState = ThingState.Dying;
+                //SPRITE CHANGE HERE
             }
         }
         if (thingState == ThingState.Dying)
@@ -76,6 +77,7 @@ public class Interactable : MonoBehaviour
                 else
                 {
                     thingState = ThingState.Dying;
+                    //SPRITE CHANGE HERE
                 }
             }
         }
@@ -89,6 +91,7 @@ public class Interactable : MonoBehaviour
             {
                 // Start reviving, when walking over dying interactable
                 thingState = ThingState.Reviving;
+                //SPRITE CHANGE HERE
             }
         }
     }
