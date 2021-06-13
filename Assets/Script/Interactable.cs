@@ -6,12 +6,11 @@ public class Interactable : MonoBehaviour
 {
     SpriteRenderer[] renderers;
 
-    [SerializeField]
     private float destroyGameObjectDelay = 0.01f;
-    [SerializeField]
+
     private float growSpeed = 0.5f;
-    [SerializeField]
-    private float dieSpeed = 0.25f;
+
+    private float dieSpeed = 0.05f;
 
     public enum ThingState
     {
@@ -55,7 +54,7 @@ public class Interactable : MonoBehaviour
         {
             foreach (SpriteRenderer renderer in renderers)
             {
-                if (renderer.color.a > 0f)
+                if (renderer.color.a > 0.001f)
                 {
                     KillInteractable(dieSpeed);
                 }
@@ -90,12 +89,13 @@ public class Interactable : MonoBehaviour
         foreach (SpriteRenderer renderer in renderers)
         {
             float alphaStep = Time.deltaTime * dieSpeed;
+            float startOpacity = renderer.color.a;
 
-            renderer.color -= new Color(
-                0,
-                0,
-                0,
-                alphaStep
+            renderer.color = new Color(
+                renderer.color.r,
+                renderer.color.g,
+                renderer.color.b,
+                Mathf.Lerp(startOpacity, 0f, alphaStep)
             );
         }
     }
