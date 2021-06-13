@@ -22,7 +22,7 @@ PrefabInstance:
     - target: {fileID: 6287325896707616272, guid: d5255762285cdd641af10277d366669f, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8300000, guid: 48b929b2953803740bf7e046f54a2cef, type: 3}
     - target: {fileID: 6392711721243361346, guid: d5255762285cdd641af10277d366669f, type: 3}
       propertyPath: m_Name
       value: shadow
@@ -30,7 +30,19 @@ PrefabInstance:
     - target: {fileID: 7535811913737100126, guid: d5255762285cdd641af10277d366669f, type: 3}
       propertyPath: pickupSound
       value: 
+      objectReference: {fileID: 5767474327669345621}
+    - target: {fileID: 7535811913737100126, guid: d5255762285cdd641af10277d366669f, type: 3}
+      propertyPath: audioClips.Array.size
+      value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7535811913737100126, guid: d5255762285cdd641af10277d366669f, type: 3}
+      propertyPath: audioClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 48b929b2953803740bf7e046f54a2cef, type: 3}
+    - target: {fileID: 7535811913737100126, guid: d5255762285cdd641af10277d366669f, type: 3}
+      propertyPath: audioClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 856d27b60f98fdb44ac1a8f877a8e486, type: 3}
     - target: {fileID: 7809955806484744173, guid: d5255762285cdd641af10277d366669f, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -89,3 +101,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5255762285cdd641af10277d366669f, type: 3}
+--- !u!82 &5767474327669345621 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6287325896707616272, guid: d5255762285cdd641af10277d366669f, type: 3}
+  m_PrefabInstance: {fileID: 525582778351592261}
+  m_PrefabAsset: {fileID: 0}

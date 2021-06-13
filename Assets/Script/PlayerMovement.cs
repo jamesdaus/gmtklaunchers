@@ -12,8 +12,8 @@ public class PlayerMovement : MonoBehaviour
     private int direction;
     
     private const float TILE_SIZE = 1.0f;
-    private const float MAX_WIDTH = 10.0f;
-    private const float MAX_HEIGHT = 5.0f;
+    private const float MAX_WIDTH = 9.0f;
+    private const float MAX_HEIGHT = 4.0f;
     // Start is called before the first frame update
     void Start()
     {
