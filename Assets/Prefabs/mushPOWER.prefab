@@ -237,7 +237,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0949c6ebc45cc1429c0935ea0d93cf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blop: funguy
+  destroyGameObjectDelay: 0.01
+  growSpeed: 0.5
+  pickedUpBy: funguy
+  thingState: 1
 --- !u!50 &-8208918571179198601
 Rigidbody2D:
   serializedVersion: 4
