@@ -40,7 +40,7 @@ namespace MrushumeMan.SeanManagement
             yield return new WaitForSeconds(sceneLoadTime);
             SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
             yield return new WaitForSeconds(sceneLoadTime);
-            Destroy(gameObject.GetComponent<SceneLoader>());
+            Destroy(gameObject);
         }
     }
 }

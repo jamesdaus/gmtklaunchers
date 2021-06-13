@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class Interactable : MonoBehaviour
 {
@@ -17,7 +16,9 @@ public class Interactable : MonoBehaviour
 
     private float goldTimer = 15f;
 
-    public TextMeshPro score;
+    private int points = 0;
+
+    public Transform socreTransform;
 
     public enum ThingState
     {
@@ -38,6 +39,7 @@ public class Interactable : MonoBehaviour
 
     void Start()
     {
+        gameObject.transform.parent = socreTransform;
         thingState = ThingState.Growing; // Start as dying
     }
 
@@ -98,9 +100,15 @@ public class Interactable : MonoBehaviour
             renderers[0].color = new Color(renderers[0].color.r, renderers[0].color.g, renderers[0].color.b, 255);
             thingState = ThingState.Golden;
 
+            ++points;
+            Debug.Log(points);
             //ADD THE SCORE HERE! IT WILL ONLY HAPPEN ONCE! JUST DO SCORE+=1
         }
         
+    }
+    public int GetPoints()
+    {
+        return points;
     }
 
     private void OnCollisionStay2D(Collision2D other)
