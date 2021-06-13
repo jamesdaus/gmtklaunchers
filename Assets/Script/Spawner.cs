@@ -47,6 +47,7 @@ public class Spawner : MonoBehaviour
 
             SceneManager.LoadScene(0);
             //sceneLoader.LoadMenu();
+
             
         }
         else {
