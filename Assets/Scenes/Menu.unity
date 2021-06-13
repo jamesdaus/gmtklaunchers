@@ -391,13 +391,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4477369800386929251, guid: 6c959ac74324b9c408911532333d0169, type: 3}
+      propertyPath: audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: b6d43b3f60c847847b5f305c2bd842e4, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c959ac74324b9c408911532333d0169, type: 3}
---- !u!1 &4058916556209740693 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4058916556517253874, guid: 6c959ac74324b9c408911532333d0169, type: 3}
+--- !u!114 &4058916556209740694 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1083353688095427959, guid: 6c959ac74324b9c408911532333d0169, type: 3}
   m_PrefabInstance: {fileID: 4058916556209740692}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd129afee9c37d24aa57820df1748126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5264717846942395540
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -862,10 +872,10 @@ PrefabInstance:
     - target: {fileID: 8443720441996591087, guid: ca5e40ab5126099428665ed5b4ec2375, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[5].m_Target
       value: 
-      objectReference: {fileID: 4058916556209740693}
+      objectReference: {fileID: 4058916556209740694}
     - target: {fileID: 8443720441996591087, guid: ca5e40ab5126099428665ed5b4ec2375, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[5].m_MethodName
-      value: 
+      value: LoadNextScean
       objectReference: {fileID: 0}
     - target: {fileID: 8443720441996591087, guid: ca5e40ab5126099428665ed5b4ec2375, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[5].m_TargetAssemblyTypeName
