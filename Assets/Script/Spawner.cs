@@ -21,7 +21,7 @@ public class Spawner : MonoBehaviour
     public GameObject[] objArray;
 
     private const float TOTAL_SPAWN_TIMER = 1.0f;
-    private const float TOTAL_GAME_TIMER = 30.0f;
+    private const float TOTAL_GAME_TIMER = 60.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -36,7 +36,7 @@ public class Spawner : MonoBehaviour
 
         if (game_timer <= 0.0f) {
             //THIS IS THE TOTAL TIME OF THE GAME RUNNING OUT, ADD SCORE DISPLAY AND RELOAD MENU HERE!
-            
+
             SceneManager.LoadScene(0);
         }
         else {

@@ -24,7 +24,7 @@ AnimatorStateMachine:
   m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: 8147930663481542228}
+  m_DefaultState: {fileID: 8947743648030018415}
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
@@ -55,7 +55,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: fungidle
-  m_Speed: 0.6
+  m_Speed: 0.13
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
