@@ -5,9 +5,13 @@ using UnityEngine;
 public class Interactable : MonoBehaviour
 {
     SpriteRenderer[] renderers;
-    public float destroyGameObjectDelay = 0.01f;
-    public float growSpeed = 0.5f;
-    public float dieSpeed = 0.05f;
+
+    [SerializeField]
+    private float destroyGameObjectDelay = 0.01f;
+    [SerializeField]
+    private float growSpeed = 0.5f;
+    [SerializeField]
+    private float dieSpeed = 0.25f;
 
     public enum ThingState
     {

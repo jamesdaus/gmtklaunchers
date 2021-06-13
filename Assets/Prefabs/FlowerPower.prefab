@@ -239,6 +239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyGameObjectDelay: 0.01
   growSpeed: 0.5
+  dieSpeed: 0.25
   pickedUpBy: plantdude
   thingState: 1
 --- !u!50 &-8208918571179198601
