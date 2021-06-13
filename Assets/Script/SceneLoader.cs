@@ -26,6 +26,7 @@ public class SceneLoader : MonoBehaviour
         yield return new WaitForSeconds(sceneLoadTime);
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
         yield return new WaitForSeconds(sceneLoadTime);
+        Destroy(gameObject);
     }
 }
 
