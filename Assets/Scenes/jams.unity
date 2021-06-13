@@ -275,7 +275,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4148501443245220359, guid: e87e168ccf38e2b4386848d7726bfa37, type: 3}
       propertyPath: m_text
-      value: 'Score:'
+      value: 'Score: '
       objectReference: {fileID: 0}
     - target: {fileID: 4148501443245220359, guid: e87e168ccf38e2b4386848d7726bfa37, type: 3}
       propertyPath: m_fontAsset

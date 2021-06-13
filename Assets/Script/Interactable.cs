@@ -7,6 +7,8 @@ public class Interactable : MonoBehaviour
     SpriteRenderer[] renderers;
     public Sprite[] sprites;
 
+    ScoreUpdater scoreUpdater;
+
     private float destroyGameObjectDelay = 0.01f;
 
     private float growSpeed = 0.5f;
@@ -16,7 +18,7 @@ public class Interactable : MonoBehaviour
 
     private float goldTimer = 15f;
 
-    private int points = 0;
+    private int pointsPerGolden = 10;
 
     public Transform socreTransform;
 
@@ -35,6 +37,7 @@ public class Interactable : MonoBehaviour
     void Awake()
     {
         renderers = GetComponentsInChildren<SpriteRenderer>();
+        scoreUpdater = FindObjectOfType<ScoreUpdater>();
     }
 
     void Start()
@@ -45,8 +48,9 @@ public class Interactable : MonoBehaviour
 
     void Update()
     {
-        if (goldTimer >= 0) {
-            
+        if (goldTimer >= 0)
+        {
+
             goldTimer -= Time.deltaTime;
 
             if (thingState == ThingState.Dead)
@@ -95,20 +99,16 @@ public class Interactable : MonoBehaviour
                 }
             }
         }
-        else if (thingState != ThingState.Golden) {
+        else if (thingState != ThingState.Golden)
+        {
             renderers[0].sprite = sprites[2];
             renderers[0].color = new Color(renderers[0].color.r, renderers[0].color.g, renderers[0].color.b, 255);
             thingState = ThingState.Golden;
 
-            ++points;
-            Debug.Log(points);
+            scoreUpdater.currentScore += pointsPerGolden;
             //ADD THE SCORE HERE! IT WILL ONLY HAPPEN ONCE! JUST DO SCORE+=1
         }
-        
-    }
-    public int GetPoints()
-    {
-        return points;
+
     }
 
     private void OnCollisionStay2D(Collision2D other)
@@ -155,10 +155,12 @@ public class Interactable : MonoBehaviour
             float alphaStep = Time.deltaTime * reviveSpeed;
 
             float startOpacity;
-            if (renderer.sprite.name == "shadow") {
+            if (renderer.sprite.name == "shadow")
+            {
                 startOpacity = 0.5f;
             }
-            else {
+            else
+            {
                 startOpacity = 1.0f;
             }
 
