@@ -3,45 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace MrushumeMan.SeanManagement
+public class SceneLoader : MonoBehaviour
 {
-    public class SceneLoader : MonoBehaviour
+    [SerializeField] int sceneLoadTime = 2;
+    [SerializeField] int loadMenu = 1;
+
+    public void LoadNextScean()
     {
-        [SerializeField] int sceneLoadTime = 2;
+        StartCoroutine(GetNextScene());
+    }
+    
+    public IEnumerable LoadMenu()
+    {
+        yield return new WaitForSeconds(loadMenu);
+        SceneManager.LoadSceneAsync(0);
+        yield return new WaitForSeconds(loadMenu);
+    }
 
-        void Start()
-        {
-            
-        }
-
-        public void LoadMenu()
-        {
-            SceneManager.LoadScene(0);
-        }
-
-        public void LoadSettings()
-        {
-
-        }
-
-        public void LoadCredits()
-        {
-
-        }
-
-        public void LoadNextScean()
-        {
-            StartCoroutine(GetNextScene());
-        }
-        
-        private IEnumerator GetNextScene()
-        {
-            DontDestroyOnLoad(gameObject);
-            yield return new WaitForSeconds(sceneLoadTime);
-            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
-            yield return new WaitForSeconds(sceneLoadTime);
-            Destroy(gameObject);
-        }
+    private IEnumerator GetNextScene()
+    {
+        DontDestroyOnLoad(gameObject);
+        yield return new WaitForSeconds(sceneLoadTime);
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+        yield return new WaitForSeconds(sceneLoadTime);
     }
 }
 

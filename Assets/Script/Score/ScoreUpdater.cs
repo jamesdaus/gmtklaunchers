@@ -7,25 +7,22 @@ using TMPro;
 public class ScoreUpdater : MonoBehaviour
 {
 
-    public TextMeshProUGUI scoreGUI;
+    public TextMeshProUGUI[] scoreGUI;
+    public TextMeshProUGUI timertext;
+    private Spawner spawner;
 
     public int currentScore = 0;
+    private int currentTime = 0;
 
     void Awake()
     {
-        scoreGUI = FindObjectOfType<TextMeshProUGUI>().GetComponent<TextMeshProUGUI>();
+        spawner = FindObjectOfType<Spawner>();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        scoreGUI.text = "Score: " + currentScore;
-        //Debug.Log(currentScore);
+        scoreGUI[1].text = "Score: " + currentScore;
+        scoreGUI[0].text = "Score: " + currentScore;
+        timertext.text = "Time Left: " + (int)spawner.game_timer;
     }
 }

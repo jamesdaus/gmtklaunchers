@@ -17,11 +17,19 @@ public class Spawner : MonoBehaviour
     };
 
     private float spawn_timer;
-    private float game_timer;
+    public float game_timer;
     public GameObject[] objArray;
+    public SceneLoader sceneLoader;
+    public Animator animator;
+    public AnimationClip animationClip;
 
     private const float TOTAL_SPAWN_TIMER = 1.0f;
     private const float TOTAL_GAME_TIMER = 60.0f;
+
+    void Awake()
+    {
+        sceneLoader = FindObjectOfType<SceneLoader>().GetComponent<SceneLoader>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +46,8 @@ public class Spawner : MonoBehaviour
             //THIS IS THE TOTAL TIME OF THE GAME RUNNING OUT, ADD SCORE DISPLAY AND RELOAD MENU HERE!
 
             SceneManager.LoadScene(0);
+            //sceneLoader.LoadMenu();
+            
         }
         else {
             game_timer -= Time.deltaTime;

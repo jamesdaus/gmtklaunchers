@@ -123,50 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &91461531
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 91461533}
-  - component: {fileID: 91461532}
-  m_Layer: 0
-  m_Name: Load Game
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &91461532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 91461531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd129afee9c37d24aa57820df1748126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneLoadTime: 1
---- !u!4 &91461533
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 91461531}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &475022783 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8443720440678458735, guid: ca5e40ab5126099428665ed5b4ec2375, type: 3}
@@ -209,6 +165,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1883102382 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1083353688095427959, guid: 6c959ac74324b9c408911532333d0169, type: 3}
+  m_PrefabInstance: {fileID: 4058916556209740692}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd129afee9c37d24aa57820df1748126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1892096662
@@ -901,6 +868,14 @@ PrefabInstance:
     - target: {fileID: 8443720441996591087, guid: ca5e40ab5126099428665ed5b4ec2375, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[5].m_Target
       value: 
+      objectReference: {fileID: 1883102382}
+    - target: {fileID: 8443720441996591087, guid: ca5e40ab5126099428665ed5b4ec2375, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[5].m_MethodName
+      value: LoadNextScean
+      objectReference: {fileID: 0}
+    - target: {fileID: 8443720441996591087, guid: ca5e40ab5126099428665ed5b4ec2375, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[5].m_TargetAssemblyTypeName
+      value: SceneLoader, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8443720442321706016, guid: ca5e40ab5126099428665ed5b4ec2375, type: 3}
       propertyPath: m_Camera
